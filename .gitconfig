@@ -1,6 +1,7 @@
 [user]
+	email = antti.vesanen@iki.fi
 	name = Antti Vesanen
-[core]
-	editor = nvim
 [init]
 	defaultBranch = master
+[core]
+	editor = nvim
