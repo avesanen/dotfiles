@@ -1,0 +1,120 @@
+#
+# ─── LAUNCHERS ───────────────────────────────────────────────────────
+#
+
+# Terminal
+super + Return
+    alacritty
+
+# App launcher
+super + d
+    rofi -show drun
+
+# Reload sxhkd
+super + Escape
+    pkill -USR1 -x sxhkd
+
+#
+# ─── BSPWM CORE ──────────────────────────────────────────────────────
+#
+
+# Restart/quit bspwm
+super + shift + r
+    bspc wm -r
+
+super + shift + q
+    bspc quit
+
+# Close/kill window
+super + q
+    bspc node -c
+
+super + shift + q
+    bspc node -k
+
+# Toggle floating/tiled
+super + s
+    bspc node -t floating
+
+# Toggle pseudo-tile
+super + shift + t
+    bspc node -t pseudo_tiled
+
+# Toggle fullscreen
+super + f
+    bspc node -t fullscreen
+
+# Toggle monocle/tiled layout
+super + m
+    bspc desktop -l next
+
+super + t
+    bspc node -t tiled
+
+#
+# ─── WINDOW FOCUSING ─────────────────────────────────────────────────
+#
+
+# Move focus
+super + {h,j,k,l}
+    bspc node -f {west,south,north,east}
+
+# Focus window history
+super + {o,i}
+    bspc wm -h off; bspc node {older,newer} -f; bspc wm -h on
+
+# Focus parent/child
+super + {p,b}
+    bspc node -f @{parent,brother}
+
+#
+# ─── WINDOW MOVEMENT ────────────────────────────────────────────────
+#
+
+# Move window
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node --{focus,swap} {west,south,north,east}
+
+super + r
+    bspc node @parent -R 90
+#
+# ─── WORKSPACES / DESKTOPS ───────────────────────────────────────────
+#
+
+# Switch desktops
+super + {1-9}
+    bspc desktop -f ^{1-9}
+
+# Move window to desktop
+super + shift + {1-9}
+    bspc node -d ^{1-9}
+
+#
+# ─── SPLIT/PRESELECTION ─────────────────────────────────────────────
+#
+
+# Preselect split direction
+super + ctrl + {h,j,k,l}
+    bspc node -p {west,south,north,east}
+
+# Cancel preselection
+super + ctrl + space
+    bspc node -p cancel
+
+# Smart tile: insert floating window into preselected direction
+super + t
+    bspc query -N -n focused.floating && bspc node -r && bspc node -t tiled
+
+#
+# ─── FLOATING MOVE/RESIZE (OPTIONAL) ─────────────────────────────────
+#
+
+# Move floating window
+super + alt + {h,j,k,l}
+    bspc node -v {-20 0,0 20,0 -20,20 0}
+
+# Resize floating window
+super + alt + shift + {h,j,k,l}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+
