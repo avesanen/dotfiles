@@ -2,6 +2,8 @@ Dotfiles
 ========
 My dotfiles for linux and mac.
 
+I'm not recommending these to anyone, they work for me, probably not for you ;)
+
 Arch (btw)
 ----------
 ```
