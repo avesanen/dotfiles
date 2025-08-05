@@ -1,0 +1,6 @@
+theme = ultradark
+font-family = ProFont IIx Nerd Font Mono 
+font-feature = -calt
+font-feature = -liga
+font-feature = -dlig
+
