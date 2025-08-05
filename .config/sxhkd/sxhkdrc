@@ -4,7 +4,7 @@
 
 # Terminal
 super + Return
-    alacritty
+    wezterm
 
 # App launcher
 super + d
